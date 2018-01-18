@@ -1,2 +1,2 @@
 # sequelizedBurger
-seqeulize homework
+sequelize homework
