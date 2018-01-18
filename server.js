@@ -1,6 +1,7 @@
 const express = require("express");
 const methodOverride = require("method-override");
 const bodyParser = require("body-parser");
+const db = require("./models");
 
 var port = process.env.PORT || 3000;
 
@@ -16,8 +17,17 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+// Static directory
+// app.use(express.static("public"));
+
 var routes = require("./controllers/burgers_controller.js");
 
 app.use("/", routes);
 
-app.listen(port);
+db.sequelize.sync({
+  // force: true
+}).then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
+});
