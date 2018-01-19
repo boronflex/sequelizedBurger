@@ -24,6 +24,7 @@ Put in your best efforts to complete one of the three available challenge tiers.
 
 * Remove all references to your vanilla MySQL queries and replace them with Sequelize queries.
 
+
 * That means:
 
   * Replacing your MySQL `Burger` model with a Sequelized equivalent.
